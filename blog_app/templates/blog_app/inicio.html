@@ -1,0 +1,16 @@
+{% extends "blog_app/base.html" %}
+
+
+
+
+{% block subtitulo %}Inicio{% endblock subtitulo %}
+
+{% block contenido %}
+{% if user.is_authenticated %}
+<h1>Hola {{ user.username}}</h1>
+<img src="{{ user.avatar.imagen.url }}" />
+{% else %}
+   <h3>  Hola gente!! Bienvenides a Diseñando Expectativas..</h1>
+{% endif %}
+{% endblock contenido %}
+

@@ -1,0 +1,48 @@
+{% extends "blog_app/base.html" %}
+
+
+{% block contenido %}
+<h1 class="titulos-coder">Lista de Posteos</h1>
+<a href="{% url 'crear_posteo' %}">Queres postear de nuevo?</a>
+<br><br>
+
+<tbody>
+  {% if object_list %}
+
+  {% for post in object_list %}
+    <tr>
+      <td> <b>Titulo: </b> {{ post.titulo_posteo }}</td>
+      <br>
+      <td> <b>Subtitulo: </b> {{ post.subtitulo_posteo }}</td> 
+      <br>
+      <td><b>Post: </b> {{ post.posteo|slice:":70" }}</td> 
+      <br>
+      <td><b>Autor: </b> {{ post.autor }}</td>
+      <br>
+      <td><b>Fecha publicación: </b> {{ post.fecha_posteo }}</td>
+      
+      <br>
+        <td>
+        <a href="{% url 'ver_posteo' post.id %}">Leer mas</a>
+      </td>
+      <br>
+      <td>
+        <a href="{% url 'editar_posteo' post.id %}">Editar</a>
+      </td>
+    
+      <td>
+        <a href="{% url 'eliminar_posteo' post.id %}">Eliminar</a>
+        
+      </td>
+      <br><br>
+    </tr>
+    {% endfor %}
+    
+    {% else %}
+    <h3>No hay entradas aún.<h3>
+  {% endif %}
+   
+  </tbody>
+
+
+{% endblock contenido %}

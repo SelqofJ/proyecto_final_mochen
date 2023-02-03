@@ -1,0 +1,11 @@
+{% extends "blog_app/base.html" %}
+
+{% block contenido %}
+<span class="bolded">Vas a eliminar a:</span> <br>{{object}} <br>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Confirmar" />
+</form>
+{% endblock contenido %}

@@ -1,0 +1,17 @@
+{% extends "blog_app/base.html" %}
+
+
+
+{% block contenido %}
+
+<p>Crea tu posteo </p>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Enviar" />
+</form>
+
+<br>
+<a href="{% url 'listar_posteos' %}">Volver a los Posteos</a>
+
+{% endblock contenido %}

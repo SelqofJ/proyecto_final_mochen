@@ -1,0 +1,20 @@
+
+{% extends "blog_app/base.html" %}
+
+
+{% block contenido %}
+<span class="bolded">POSTEO COMPLETO </span>
+<br>
+<br>
+<h6> <span class="bolded">TITULO </span> </h6><em>{{object.titulo_posteo}}</em>
+<h6> <span class="bolded">subtitulo </span> </h6><em>{{object.subtitulo_posteo}}</em>
+<br>
+<span><b>POSTEO:</b> {{object.posteo}}</span>
+<br>
+<b>AUTOR: </b> {{object.autor}} 
+<br>
+<a>Fecha: </a> ^{{object.fecha_posteo}}
+<br><br>
+<a href="{% url 'listar_posteos' %}">Volver a la lista</a>
+
+{% endblock contenido %}
